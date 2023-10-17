@@ -1,3 +1,7 @@
 {
+  "continueText": "Continue",
+  "login": "Login",
+  "password": "Password",
+  "signIn": "Sign In",
   "test": "Test text"
 }

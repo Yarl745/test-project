@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_app_badger/flutter_app_badger.dart';
 import 'package:olearistest/core/style/colors/colors.dart';
 import 'package:olearistest/router/router.dart';
@@ -23,7 +22,7 @@ void main() async {
         path: 'assets/translations',
         fallbackLocale: const Locale('en'),
         child: const ClrThemeWidget(
-          isDarkTheme: true,
+          isDarkTheme: false,
           child: MyApp(),
         ),
       );
@@ -43,7 +42,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     if (Platform.isAndroid) {
       FlutterAppBadger.removeBadge();
     }
