@@ -6,6 +6,7 @@ import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:olearistest/base_widgets/images/logo_widget.dart';
 import 'package:olearistest/base_widgets/scroll_widgets/expanded_scroll_view.dart';
 import 'package:olearistest/core/style/padding_consts.dart';
+import 'package:olearistest/core/style/text_style.dart';
 import 'package:olearistest/core/translations/local_keys.g.dart';
 import 'package:olearistest/features/auth/cubits/login_cubit/login_cubit.dart';
 import 'package:olearistest/features/auth/cubits/user_session_cubit/user_session_cubit.dart';
@@ -43,7 +44,7 @@ class LoginPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text(LocaleKeys.signIn.tr()),
+          title: Text(LocaleKeys.signIn.tr(), style: textStyle.s18.w400),
         ),
         body: KeyboardDismissOnTap(
           child: ExpandedScrollView(

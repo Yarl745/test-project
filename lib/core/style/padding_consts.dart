@@ -60,6 +60,7 @@ abstract class CPadding {
   static const EdgeInsets all18 = EdgeInsets.symmetric(vertical: 18, horizontal: 3);
   static const EdgeInsets all20 = EdgeInsets.symmetric(vertical: 20, horizontal: 20);
   static const EdgeInsets all24 = EdgeInsets.symmetric(vertical: 24, horizontal: 24);
+  static const EdgeInsets all30 = EdgeInsets.symmetric(vertical: 30, horizontal: 30);
 
   // only
   static const EdgeInsets bottom4 = EdgeInsets.only(bottom: 4);

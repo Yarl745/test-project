@@ -4,6 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_badger/flutter_app_badger.dart';
 import 'package:olearistest/core/style/colors/colors.dart';
+import 'package:olearistest/core/style/cutom_theme.dart';
 import 'package:olearistest/router/router.dart';
 
 import 'app_config.dart';
@@ -57,6 +58,7 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       routerConfig: appRouter.config(),
+      theme: CTheme.getAppTheme(context),
     );
   }
 }
