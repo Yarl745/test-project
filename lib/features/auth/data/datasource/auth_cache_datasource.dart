@@ -10,5 +10,6 @@ class AuthCacheDatasourceImpl extends AuthCacheDatasource {
   @override
   Future<void> saveJwtToken(String jwtToken) async {
     await Future.delayed(const Duration(milliseconds: 200));
+    print('jwt token saved');
   }
 }

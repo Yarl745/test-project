@@ -21,7 +21,7 @@ class RxContinueButton extends StatelessWidget {
 
         if (state is LoginToAccountLoading) {
           isLoading = true;
-          enabled = false;
+          enabled = true;
         } //
         else if (state is LoginCredentialsCorrect) {
           isLoading = false;

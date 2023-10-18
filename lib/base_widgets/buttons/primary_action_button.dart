@@ -21,7 +21,7 @@ class PrimaryActionButton extends StatelessWidget {
     return SizedBox(
       width: width,
       child: ElevatedButton(
-        onPressed: enabled ? onPressed : null,
+        onPressed: enabled && isLoading == false ? onPressed : null,
         child: isLoading
             ? const SizedBox(
                 height: 20,

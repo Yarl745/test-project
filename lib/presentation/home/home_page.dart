@@ -4,6 +4,8 @@ import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:olearistest/base_widgets/images/logo_widget.dart';
 import 'package:olearistest/base_widgets/scroll_widgets/expanded_scroll_view.dart';
 import 'package:olearistest/core/style/padding_consts.dart';
+import 'package:olearistest/features/markup/cubits/markup_generator_cubit/markup_generator_cubit.dart';
+import 'package:olearistest/injection_container.dart';
 import 'package:olearistest/presentation/home/components/markup_control_app_bar.dart';
 import 'package:olearistest/presentation/home/components/rx_markup_dynamic_items_wrap.dart';
 
@@ -11,9 +13,9 @@ import 'package:olearistest/presentation/home/components/rx_markup_dynamic_items
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  void onPlusTap() {}
+  void onPlusTap() => sl<MarkupGeneratorCubit>().addMarkupItem();
 
-  void onMinusTap() {}
+  void onMinusTap() => sl<MarkupGeneratorCubit>().removeMarkupItem();
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +27,12 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Expanded(
-                child: Padding(
-                  padding: CPadding.all30,
-                  child: LogoWidget(maxWidth: 375, withBorders: true),
-                ),
+              Spacer(),
+              Padding(
+                padding: CPadding.all30,
+                child: LogoWidget(maxWidth: 375, withBorders: true),
               ),
+              Spacer(),
               RxMarkupDynamicItemsWrap(maxMarkupWidth: 700),
               SizedBox(height: 10),
             ],

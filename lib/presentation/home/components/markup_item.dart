@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:olearistest/core/style/text_style.dart';
+import 'package:olearistest/features/markup/data/repositories/entities/markup_item_data.dart';
 
 class MarkupItem extends StatelessWidget {
   const MarkupItem({
     Key? key,
-    required this.index,
+    required this.itemData,
     required this.width,
     required this.height,
   }) : super(key: key);
 
-  final int index;
+  final MarkupItemData itemData;
   final double width;
   final double height;
 
@@ -24,7 +25,7 @@ class MarkupItem extends StatelessWidget {
         border: Border.all(color: Colors.black, width: 1),
       ),
       child: Text(
-        'Item $index',
+        itemData.name,
         style: textStyle.w500.s20.black(context),
       ),
     );

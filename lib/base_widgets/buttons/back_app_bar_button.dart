@@ -6,7 +6,6 @@ class BackAppBarButton extends StatelessWidget {
   const BackAppBarButton({Key? key}) : super(key: key);
 
   void onBackTap(BuildContext context) => context.router.pop();
-  // Icons.arrow_back_ios
   @override
   Widget build(BuildContext context) {
     return IconAppBarButton(

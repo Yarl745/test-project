@@ -15,7 +15,8 @@ class LogoWidget extends StatelessWidget {
     return FittedBox(
       fit: BoxFit.fitWidth,
       child: Container(
-        padding: CPadding.all10,
+        width: maxWidth,
+        padding: withBorders ? CPadding.all10 : null,
         decoration: withBorders
             ? BoxDecoration(
                 border: Border.all(color: Clr.of(context).black, width: 1),
