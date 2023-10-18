@@ -23,3 +23,9 @@ extension FileNameExt on String {
 
   String get fileNameFromPathWithoutType => fileNameFromPath.fileNameWithoutType;
 }
+
+extension AuthTextExt on String {
+  bool get isEmailShort => length < 1;
+
+  bool get isPasswordShort => length < 1;
+}

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:olearistest/features/auth/injection_container.dart';
+import 'package:olearistest/features/markup/injection_container.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import 'app_config.dart';
@@ -13,7 +15,7 @@ final sl = GetIt.instance;
 
 const globalDio = 'global';
 
-class InjectionContainer extends Injector {}
+class InjectionContainer extends Injector with AuthInjector, MarkupInjector {}
 
 abstract class Injector {
   @mustCallSuper
