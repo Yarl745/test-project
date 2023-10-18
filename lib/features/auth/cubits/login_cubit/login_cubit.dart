@@ -84,7 +84,9 @@ class LoginCubit extends Cubit<LoginState> {
           ),
         );
       } else {
-        emit(LoginCredentialsCorrect(loginInput: currentState.loginInput));
+        Future.delayed(const Duration(milliseconds: 500)).then(
+          (value) => emit(LoginCredentialsCorrect(loginInput: currentState.loginInput)),
+        );
       }
       return authToken;
     }

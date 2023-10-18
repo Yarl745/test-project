@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
               ),
               Spacer(),
               RxMarkupDynamicItemsWrap(maxMarkupWidth: 700),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
             ],
           ),
         ),

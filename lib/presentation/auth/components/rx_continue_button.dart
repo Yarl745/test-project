@@ -31,7 +31,7 @@ class RxContinueButton extends StatelessWidget {
         return PrimaryActionButton(
           text: LocaleKeys.continueText.tr(),
           onPressed: onPressed,
-          width: 90,
+          width: 110,
           enabled: enabled,
           isLoading: isLoading,
         );
