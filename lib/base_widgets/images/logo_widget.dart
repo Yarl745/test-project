@@ -12,10 +12,9 @@ class LogoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FittedBox(
-      fit: BoxFit.fitWidth,
+    return SizedBox(
+      width: maxWidth,
       child: Container(
-        width: maxWidth,
         padding: withBorders ? CPadding.all10 : null,
         decoration: withBorders
             ? BoxDecoration(
