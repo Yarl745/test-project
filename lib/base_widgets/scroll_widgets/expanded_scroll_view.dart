@@ -15,6 +15,7 @@ class ExpandedScrollView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
+      shrinkWrap: false,
       physics: physics,
       slivers: [
         SliverFillRemaining(

@@ -46,31 +46,33 @@ class LoginPage extends StatelessWidget {
           centerTitle: true,
           title: Text(LocaleKeys.signIn.tr(), style: textStyle.s18.w400),
         ),
-        body: KeyboardDismissOnTap(
-          child: ExpandedScrollView(
-            hasScrollBody: false,
-            child: Column(
-              children: [
-                const Expanded(flex: 1, child: SizedBox(height: 30)),
-                const Padding(
-                  padding: CPadding.horizontal20,
-                  child: LogoWidget(maxWidth: 375),
-                ),
-                const Expanded(flex: 1, child: SizedBox(height: 30)),
-                Container(
-                  margin: CPadding.horizontal20,
-                  constraints: const BoxConstraints(maxWidth: 700),
-                  child: Column(
-                    children: [
-                      LoginTextField(hintText: LocaleKeys.login.tr(), onInput: onEmailInput),
-                      LoginTextField(hintText: LocaleKeys.password.tr(), onInput: onPasswordInput),
-                    ],
+        body: SafeArea(
+          child: KeyboardDismissOnTap(
+            child: ExpandedScrollView(
+              hasScrollBody: false,
+              child: Column(
+                children: [
+                  const Expanded(flex: 1, child: SizedBox(height: 30)),
+                  const Padding(
+                    padding: CPadding.horizontal20,
+                    child: LogoWidget(maxWidth: 375),
                   ),
-                ),
-                const Expanded(flex: 2, child: SizedBox(height: 30)),
-                RxContinueButton(onPressed: onContinuePressed),
-                const SizedBox(height: 30),
-              ],
+                  const Expanded(flex: 1, child: SizedBox(height: 30)),
+                  Container(
+                    margin: CPadding.horizontal20,
+                    constraints: const BoxConstraints(maxWidth: 700),
+                    child: Column(
+                      children: [
+                        LoginTextField(hintText: LocaleKeys.login.tr(), onInput: onEmailInput),
+                        LoginTextField(hintText: LocaleKeys.password.tr(), onInput: onPasswordInput),
+                      ],
+                    ),
+                  ),
+                  const Expanded(flex: 2, child: SizedBox(height: 30)),
+                  RxContinueButton(onPressed: onContinuePressed),
+                  const SizedBox(height: 30),
+                ],
+              ),
             ),
           ),
         ),

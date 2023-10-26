@@ -33,3 +33,91 @@ class RxMarkupDynamicItemsWrap extends StatelessWidget {
     );
   }
 }
+
+class RxMarkupDynamicItemsGrid extends StatelessWidget {
+  const RxMarkupDynamicItemsGrid({
+    Key? key,
+    this.maxMarkupWidth = 700,
+    required this.itemHeight,
+    this.itemWidth,
+  }) : super(key: key);
+
+  final double maxMarkupWidth;
+  final double itemHeight;
+  final double? itemWidth;
+
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final calculatedItemWidth = itemWidth ?? (min(maxMarkupWidth, screenWidth) / 2) - 10;
+    final horizontalPadding = max(10.0, (screenWidth - 2 * calculatedItemWidth) / 2);
+    return BlocBuilder<MarkupGeneratorCubit, MarkupGeneratorState>(
+      bloc: sl<MarkupGeneratorCubit>(),
+      builder: (context, state) {
+        return SizedBox(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+            child: GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                childAspectRatio: calculatedItemWidth / itemHeight,
+              ),
+              itemBuilder: (context, index) {
+                return MarkupItem(
+                  itemData: state.items[index],
+                  height: itemHeight,
+                );
+              },
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class RxMarkupDynamicItemsSliver extends StatelessWidget {
+  const RxMarkupDynamicItemsSliver({
+    Key? key,
+    this.maxMarkupWidth = 700,
+    required this.itemHeight,
+    this.itemWidth,
+  }) : super(key: key);
+
+  final double maxMarkupWidth;
+  final double itemHeight;
+  final double? itemWidth;
+
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final calculatedItemWidth = itemWidth ?? (min(maxMarkupWidth, screenWidth) / 2) - 10;
+    final horizontalPadding = max(10.0, (screenWidth - 2 * calculatedItemWidth) / 2);
+    return BlocBuilder<MarkupGeneratorCubit, MarkupGeneratorState>(
+      bloc: sl<MarkupGeneratorCubit>(),
+      builder: (context, state) {
+        return SliverPadding(
+          padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+          sliver: SliverGrid.builder(
+            itemCount: state.items.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              childAspectRatio: calculatedItemWidth / itemHeight,
+            ),
+            itemBuilder: (context, index) {
+              return MarkupItem(
+                itemData: state.items[index],
+                height: itemHeight,
+              );
+            },
+          ),
+        );
+      },
+    );
+  }
+}

@@ -6,27 +6,33 @@ class MarkupItem extends StatelessWidget {
   const MarkupItem({
     Key? key,
     required this.itemData,
-    required this.width,
-    required this.height,
+    this.width,
+    this.height,
   }) : super(key: key);
 
   final MarkupItemData itemData;
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-      height: height,
-      width: width,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.black, width: 1),
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        maxWidth: width ?? double.infinity,
+        maxHeight: height ?? double.infinity,
       ),
-      child: Text(
-        itemData.name,
-        style: textStyle.w500.s20.black(context),
+      // width: width,
+      // height: height,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black, width: 1),
+        ),
+        child: Text(
+          itemData.name,
+          style: textStyle.w500.s20.black(context),
+        ),
       ),
     );
   }
